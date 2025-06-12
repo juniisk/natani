@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Para Natani 💖</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="musica/daniel-caesar-best-part.mp3" type="audio/mpeg" />
+  </audio>
+
+  <div id="inicio" class="caixa">
+    <h1>Oi amor 💌</h1>
+    <p>Preparei essa surpresa pra você. Está pronta para ver?</p>
+    <button onclick="mostrarCartas()">Sim</button>
+  </div>
+
+  <div id="cartas" class="oculto">
+    <div class="foto-com-legenda">
+      <img id="foto" src="imagens/foto1.jpg" alt="Foto nossa" />
+      <div class="caixa-texto" id="textoFoto">
+        <p>A cada toque, te amo mais</p>
+      </div>
+    </div>
+    <button onclick="proximaParte()">Próxima parte</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
