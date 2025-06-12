@@ -1,7 +1,18 @@
 function mostrarCartas() {
   document.getElementById('inicio').style.display = 'none';
   document.getElementById('cartas').style.display = 'block';
+
+  const musica = document.getElementById('musica');
+  if (musica) {
+    musica.volume = 0.5; // volume em 50%
+    musica.play().catch((error) => {
+      console.log("Erro ao tentar tocar a música:", error);
+    });
+  }
 }
+
+
+
 
 const fotos = [
   'foto1.jpg',

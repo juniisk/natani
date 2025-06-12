@@ -6,8 +6,9 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <audio autoplay loop>
-    <source src="musica/daniel-caesar-best-part.mp3" type="audio/mpeg" />
+  <!-- Áudio carregado mas pausado inicialmente -->
+  <audio id="musica" loop>
+    <source src="musica/best-part.mp3" type="audio/mpeg" />
   </audio>
 
   <div id="inicio" class="caixa">
@@ -17,15 +18,57 @@
   </div>
 
   <div id="cartas" class="oculto">
-    <div class="foto-com-legenda">
-      <img id="foto" src="imagens/foto1.jpg" alt="Foto nossa" />
-      <div class="caixa-texto" id="textoFoto">
-        <p>A cada toque, te amo mais</p>
-      </div>
+    <img id="foto" src="imagens/foto1.jpg" alt="Foto nossa" />
+    <div class="caixa-texto" id="textoFoto">
+      <p>A cada toque, te amo mais</p>
     </div>
     <button onclick="proximaParte()">Próxima parte</button>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    const musica = document.getElementById('musica');
+
+    function mostrarCartas() {
+      // Esconde a tela inicial
+      document.getElementById('inicio').style.display = 'none';
+      // Mostra a carta
+      document.getElementById('cartas').style.display = 'block';
+      // Tenta tocar a música (navegadores pedem interação do usuário)
+      musica.play().catch(err => {
+        console.log('Erro ao tentar tocar música:', err);
+      });
+    }
+
+    // Resto do seu código para avançar fotos e textos...
+    // Aqui é um exemplo básico para avançar imagens e legendas
+
+    const fotos = [
+      'foto1.jpg', 'foto2.jpg', 'foto3.jpg', 'foto4.jpg', 'foto5.jpg',
+      'foto6.jpg', 'foto7.jpg', 'foto8.jpg', 'foto9.jpg'
+    ];
+
+    const textos = [
+      "A cada toque, te amo mais",
+      "Esse sorriso me ganha fácil! Eu sou apaixonado em te ver sorrindo",
+      "Saiba que sempre vou te proteger",
+      "Inclusive quando tu está dormindo abraçada em mim, roncando e babando haha",
+      "Que tu sempre te sinta em casa no meu abraço",
+      "Eu te amo, amo nós juntos! Minha preciosa",
+      "Até nisso Deus me atendeu, uma curitibana pra dividir o mate comigo",
+      "Saiba que eu sou muito feliz ao teu lado!",
+      "Feliz dia dos namorados! É o primeiro de longos anos que teremos juntos, minha princesa! Eu te amo muito!"
+    ];
+
+    let parteAtual = 0;
+
+    function proximaParte() {
+      parteAtual++;
+      if (parteAtual >= fotos.length) {
+        parteAtual = 0; // Ou para no final, ou volta pro início
+      }
+      document.getElementById('foto').src = 'imagens/' + fotos[parteAtual];
+      document.getElementById('textoFoto').innerText = textos[parteAtual];
+    }
+  </script>
 </body>
 </html>
