@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* style.css */
 body {
   font-family: Arial, sans-serif;
@@ -64,3 +65,71 @@ button {
 button:hover {
   background-color: #e04474;
 }
+=======
+/* style.css */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fff0f6;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.caixa {
+  text-align: center;
+  padding: 20px;
+}
+
+.oculto {
+  display: none;
+}
+
+#cartas {
+  position: relative;
+  max-width: 320px;
+  width: 100%;
+}
+
+#foto {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.caixa-texto {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5); /* fundo semi-transparente escuro */
+  color: white;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  font-size: 16px;
+  border-radius: 0 0 12px 12px;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+button {
+  margin-top: 15px;
+  padding: 12px 25px;
+  font-size: 18px;
+  background-color: #ff5c8d;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #e04474;
+}
+>>>>>>> 3e41f69c1b8bd7e81716978fb98c4a05822baaf8
