@@ -1,107 +1,44 @@
-<<<<<<< HEAD
-function mostrarCartas() {
-  document.getElementById('inicio').style.display = 'none';
-  document.getElementById('cartas').style.display = 'block';
-
-  // Tocar a música ao clicar no botão
-  const musica = document.getElementById('musica');
-  musica.play().catch(() => {
-    // Caso o navegador bloqueie a reprodução automática, você pode mostrar uma mensagem para a Natani clicar para ativar
-    console.log('Reprodução automática bloqueada pelo navegador');
-  });
-}
-
-
-
-
-
-const fotos = [ 
-  'foto1.jpg',
-  'foto2.jpg',
-  'foto3.jpg',
-  'foto4.jpg',
-  'foto5.jpg',
-  'foto6.jpg',
-  'foto7.jpg',
-  'foto8.jpg',
-  'foto9.jpg'
-];
-
-const textos = [
-  "A cada toque, te amo mais",
-  "Esse sorriso me ganha fácil! Eu sou apaixonado em te ver sorrindo",
-  "Saiba que sempre vou te proteger",
-  "Inclusive quando tu está dormindo abraçada em mim, roncando e babando haha",
-  "Que tu sempre te sinta em casa no meu abraço",
-  "Eu te amo, amo nós juntos! Minha preciosa",
-  "Até nisso Deus me atendeu, uma curitibana pra dividir o mate comigo",
-  "Saiba que eu sou muito feliz ao teu lado!",
-  "Feliz dia dos namorados! É o primeiro de longos anos que teremos juntos, minha princesa! Eu te amo muito!"
-];
-
-let parteAtual = 0;
-
-function proximaParte() {
-  parteAtual++;
-
-  if (parteAtual >= fotos.length) {
-    parteAtual = 0; // volta ao início, se quiser parar em último, basta remover essa linha
-  }
-
-  document.getElementById('foto').src = 'imagens/' + fotos[parteAtual];
-  document.getElementById('textoFoto').innerHTML = `<p>${textos[parteAtual]}</p>`;
-}
-=======
-function mostrarCartas() {
-  document.getElementById('inicio').style.display = 'none';
-  document.getElementById('cartas').style.display = 'block';
-
-  const musica = document.getElementById('musica');
-  if (musica) {
-    musica.volume = 0.5; // volume em 50%
-    musica.play().catch((error) => {
-      console.log("Erro ao tentar tocar a música:", error);
-    });
-  }
-}
-
-
-
-
 const fotos = [
-  'foto1.jpg',
-  'foto2.jpg',
-  'foto3.jpg',
-  'foto4.jpg',
-  'foto5.jpg',
-  'foto6.jpg',
-  'foto7.jpg',
-  'foto8.jpg',
-  'foto9.jpg'
+  { src: "imagens/foto1.jpg", legenda: "A cada toque, te amo mais" },
+  { src: "imagens/foto2.jpg", legenda: "Esse sorriso me ganha fácil! Eu sou apaixonado em te ver sorrindo" },
+  { src: "imagens/foto3.jpg", legenda: "Saiba que sempre vou te proteger" },
+  { src: "imagens/foto4.jpg", legenda: "Inclusive quando tu está dormindo abraçada em mim, roncando e babando haha" },
+  { src: "imagens/foto5.jpg", legenda: "Que tu sempre te sinta em casa no meu abraço" },
+  { src: "imagens/foto6.jpg", legenda: "Eu te amo, amo nós juntos! Minha preciosa" },
+  { src: "imagens/foto7.jpg", legenda: "Até nisso Deus me atendeu, uma curitibana pra dividir o mate comigo" },
+  { src: "imagens/foto8.jpg", legenda: "Saiba que eu sou muito feliz ao teu lado!" },
+  { src: "imagens/foto9.jpg", legenda: "Feliz dia dos namorados! É o primeiro de longos anos que teremos juntos, minha princesa! Eu te amo muito!" },
 ];
 
-const textos = [
-  "A cada toque, te amo mais",
-  "Esse sorriso me ganha fácil! Eu sou apaixonado em te ver sorrindo",
-  "Saiba que sempre vou te proteger",
-  "Inclusive quando tu está dormindo abraçada em mim, roncando e babando haha",
-  "Que tu sempre te sinta em casa no meu abraço",
-  "Eu te amo, amo nós juntos! Minha preciosa",
-  "Até nisso Deus me atendeu, uma curitibana pra dividir o mate comigo",
-  "Saiba que eu sou muito feliz ao teu lado!",
-  "Feliz dia dos namorados! É o primeiro de longos anos que teremos juntos, minha princesa! Eu te amo muito!"
-];
+const caixaInicial = document.getElementById("caixa-inicial");
+const btnSim = document.getElementById("btn-sim");
+const container = document.getElementById("container");
+const fotoEl = document.getElementById("foto");
+const legendaEl = document.getElementById("legenda");
+const btnProximo = document.getElementById("btn-proximo");
+const musica = document.getElementById("musica");
 
-let parteAtual = 0;
+let indiceAtual = 0;
 
-function proximaParte() {
-  parteAtual++;
+btnSim.addEventListener("click", () => {
+  caixaInicial.classList.add("hidden");
+  container.classList.remove("hidden");
+  mostrarFoto(indiceAtual);
+  musica.play().catch(() => {
+    // Se o autoplay falhar, música será iniciada só quando o botão for clicado no futuro
+  });
+});
 
-  if (parteAtual >= fotos.length) {
-    parteAtual = 0; // volta ao início, se quiser parar em último, basta remover essa linha
+btnProximo.addEventListener("click", () => {
+  indiceAtual++;
+  if (indiceAtual >= fotos.length) {
+    // Se quiser, pode resetar ou ocultar a parte final
+    indiceAtual = 0;
   }
+  mostrarFoto(indiceAtual);
+});
 
-  document.getElementById('foto').src = 'imagens/' + fotos[parteAtual];
-  document.getElementById('textoFoto').innerHTML = `<p>${textos[parteAtual]}</p>`;
+function mostrarFoto(index) {
+  fotoEl.src = fotos[index].src;
+  legendaEl.textContent = fotos[index].legenda;
 }
->>>>>>> 3e41f69c1b8bd7e81716978fb98c4a05822baaf8

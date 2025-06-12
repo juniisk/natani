@@ -1,76 +1,112 @@
-/* Reset básico e corpo */
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
-  margin: 20px;
-  text-align: center;
-  color: #333;
+  background: #111;
+  color: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  padding: 20px;
 }
 
-/* Container da foto e legenda */
-.photo-container {
-  position: relative;
-  max-width: 90vw; /* largura até 90% da tela */
-  margin: 0 auto 20px auto;
+.hidden {
+  display: none;
+}
+
+.caixa-inicial {
+  background: #222;
+  padding: 30px 40px;
   border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  background-color: white;
+  text-align: center;
+  box-shadow: 0 0 10px #555;
 }
 
-/* Imagem */
-.photo-container img {
+.caixa-inicial p {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+}
+
+button {
+  cursor: pointer;
+  background: #9c27b0;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #7b1fa2;
+}
+
+.container {
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  user-select: none;
+}
+
+.foto-legenda {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 0 15px #6a0dad;
+}
+
+.foto-legenda img {
   width: 100%;
   height: auto;
   display: block;
+  border-radius: 15px;
 }
 
-/* Legenda sobre a foto, na parte inferior */
-.photo-caption {
+.legenda {
   position: absolute;
   bottom: 0;
-  left: 0;
   width: 100%;
-  padding: 8px 12px;
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 10px 15px;
   font-size: 1rem;
-  text-align: center;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  pointer-events: none; /* deixa clicar atrás da legenda */
-  user-select: none; /* evita seleção do texto da legenda */
+  border-radius: 0 0 15px 15px;
+  box-sizing: border-box;
+  user-select: text;
 }
 
-/* Botão Próxima Parte */
-#nextButton {
-  margin-top: 15px;
-  padding: 12px 25px;
-  font-size: 1.1rem;
-  cursor: pointer;
-  border: none;
-  border-radius: 6px;
-  background-color: #4CAF50;
-  color: white;
-  display: inline-block;
-  transition: background-color 0.3s ease;
+.btn-proximo {
+  margin-top: 20px;
+  width: 100%;
+  font-weight: bold;
 }
 
-#nextButton:hover {
-  background-color: #45a049;
-}
-
-/* Ajustes para telas pequenas (celulares) */
+/* Responsividade iPhone 12 Pro (e similares) */
 @media (max-width: 430px) {
-  .photo-container {
-    max-width: 95vw;
+  body {
+    padding: 10px;
   }
-  .photo-caption {
+  .caixa-inicial {
+    padding: 20px 25px;
+  }
+  button {
+    padding: 10px 20px;
     font-size: 0.9rem;
-    padding: 6px 10px;
   }
-  #nextButton {
-    padding: 14px 30px;
-    font-size: 1.2rem;
+  .legenda {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+  .container {
+    max-width: 100%;
   }
 }
