@@ -15,65 +15,8 @@ body {
   height: 100vh;
   flex-direction: column;
   padding: 20px;
-  position: relative;
-  overflow: hidden;
 }
 
-/* ELEMENTOS ANIMADOS DE FUNDO */
-@keyframes flutuar {
-  0% {
-    transform: translateY(0) translateX(0) rotate(0deg);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-100vh) translateX(20px) rotate(360deg);
-    opacity: 0;
-  }
-}
-
-.fundo-animado {
-  pointer-events: none; /* para não atrapalhar clique */
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 0;
-  overflow: visible;
-}
-
-.fundo-animado span {
-  position: absolute;
-  bottom: -40px;
-  font-size: 24px;
-  animation-name: flutuar;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-}
-
-/* Corações e flores em rosa bebê e lilás claro */
-.fundo-animado .coracao {
-  color: #f4c2c2; /* rosa bebê */
-  animation-duration: 12s;
-}
-
-.fundo-animado .flor {
-  color: #d8bfd8; /* lilás claro */
-  animation-duration: 15s;
-}
-
-/* Posicionamento e delays para distribuir os elementos */
-.fundo-animado span:nth-child(odd) {
-  left: calc(10% + 80vw * var(--random));
-  animation-delay: calc(5s * var(--random));
-}
-
-.fundo-animado span:nth-child(even) {
-  left: calc(20% + 70vw * var(--random));
-  animation-delay: calc(7s * var(--random));
-}
-
-/* Outros estilos existentes */
 .hidden {
   display: none;
 }
@@ -84,8 +27,6 @@ body {
   border-radius: 10px;
   text-align: center;
   box-shadow: 0 0 10px #555;
-  z-index: 1;
-  position: relative;
 }
 
 .caixa-inicial p {
@@ -102,8 +43,6 @@ button {
   border-radius: 6px;
   font-size: 1rem;
   transition: background 0.3s ease;
-  z-index: 1;
-  position: relative;
 }
 
 button:hover {
@@ -115,8 +54,6 @@ button:hover {
   width: 100%;
   text-align: center;
   user-select: none;
-  z-index: 1;
-  position: relative;
 }
 
 .foto-legenda {
@@ -127,11 +64,13 @@ button:hover {
   box-shadow: 0 0 15px #6a0dad;
 }
 
-.foto-legenda img {
+#foto {
   width: 100%;
-  height: auto;
-  display: block;
+  max-height: 350px;
+  object-fit: contain; /* alterado para mostrar a imagem inteira */
   border-radius: 15px;
+  box-shadow: 0 0 15px #f7c6d1bb;
+  margin-bottom: 15px;
 }
 
 .legenda {
@@ -151,6 +90,54 @@ button:hover {
   margin-top: 20px;
   width: 100%;
   font-weight: bold;
+}
+
+.final-texto-container {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  background: #111;
+  border: 4px solid #f7c6d1;
+  border-radius: 15px;
+  padding: 25px 30px;
+  overflow-y: auto;
+  color: #f7c6d1;
+  font-family: 'Balqis', serif;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  user-select: text;
+  box-shadow: 0 0 25px #f7c6d1aa;
+  z-index: 9999;
+}
+
+/* Animação dos corações flutuantes */
+.coracao {
+  position: fixed;
+  width: 25px;
+  height: 25px;
+  background: #f7c6d1bb;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  opacity: 0.8;
+  animation-name: flutuar;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes flutuar {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-15px) rotate(15deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.8;
+  }
 }
 
 /* Responsividade iPhone 12 Pro (e similares) */

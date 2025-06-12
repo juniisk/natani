@@ -5,24 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Surpresa para Natani</title>
   <link rel="stylesheet" href="style.css" />
+  <!-- Fonte Balqis do Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Balqis&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <!-- Fundo animado com corações e flores -->
-  <div class="fundo-animado" aria-hidden="true">
-    <span class="coracao" style="--random: 0.1;">&#10084;</span>
-    <span class="flor" style="--random: 0.4;">&#127799;</span>
-    <span class="coracao" style="--random: 0.3;">&#10084;</span>
-    <span class="flor" style="--random: 0.7;">&#127799;</span>
-    <span class="coracao" style="--random: 0.2;">&#10084;</span>
-    <span class="flor" style="--random: 0.9;">&#127799;</span>
-    <span class="coracao" style="--random: 0.5;">&#10084;</span>
-    <span class="flor" style="--random: 0.6;">&#127799;</span>
-    <span class="coracao" style="--random: 0.8;">&#10084;</span>
-    <span class="flor" style="--random: 0.3;">&#127799;</span>
-  </div>
-
   <div id="caixa-inicial" class="caixa-inicial">
-    <p>Quer ver a surpresa, Natani?</p>
+    <p>Quer ver a surpresa, minha princesa?</p>
     <button id="btn-sim">Sim</button>
   </div>
 
@@ -32,6 +20,24 @@
       <p id="legenda" class="legenda"></p>
     </div>
     <button id="btn-proximo" class="btn-proximo">Próxima parte</button>
+  </div>
+
+  <!-- Nova caixa para a confirmação após a última foto -->
+  <div id="caixa-finalzinho" class="caixa-finalzinho hidden">
+    <p>Espero que tenha gostado meu amor :)<br />Tem só mais umas coisas que preciso te dizer, podemos continuar?</p>
+    <button id="btn-continuar">SIM</button>
+  </div>
+
+  <!-- Tela final com texto e corações -->
+  <div id="tela-final" class="tela-final hidden">
+    <div class="texto-final" tabindex="0">
+      Sou muito feliz por ter tu comigo. Cada dia ao teu lado é uma alegria que enche minha vida de luz. Quando tô contigo, queria congelar o tempo só pra ficar mais um pouco, aproveitando cada sorriso, cada olhar teu.<br /><br />
+      Nossa sintonia é coisa de outro mundo, que não dá pra explicar. O nosso beijo, a nossa química... tudo em ti me completa e me faz apaixonar mais a cada dia. Sou louco pelo teu sorriso que clareia meus dias, pelo teu olhar que me prende, pelo teu corpo que me aquece e pela tua presença que é meu lugar seguro.<br /><br />
+      Já sonho com o nosso futuro: casar, ter nossa casa, nossa família e criar nossos três filhos num lar cheio de amor. Não tenho dúvida nenhuma que tu és o amor da minha vida, a pessoa com quem quero viver todos os dias que ainda vêm.<br /><br />
+      Pode contar comigo pra tudo, sempre. Em mim tu vais ter amor de verdade, abrigo pra se proteger, carinho pra aquecer o coração e um protetor que vai cuidar de ti.<br /><br />
+      Feliz Dia dos Namorados, meu amor. Sou grato por cada instante que passo contigo.
+    </div>
+    <div class="borda-coracoes"></div>
   </div>
 
   <audio id="musica" loop>
